@@ -1,0 +1,12 @@
+{
+    "godot_tools.editor_path": "godot",
+    "godot_tools.gdscript_lsp_server_port": 6008,
+    "godot_tools.gdscript_lsp_server_host": "127.0.0.1",
+    "files.associations": {
+        "*.gd": "gdscript",
+        "*.cs": "csharp",
+        "*.tscn": "godot-scene",
+        "*.tres": "godot-resource"
+    },
+    "godot_tools.scene_file_config": "res://project.godot"
+}

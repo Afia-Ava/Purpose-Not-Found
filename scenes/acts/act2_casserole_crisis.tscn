@@ -1,0 +1,253 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwq8m5k4hp3ag"]
+
+[ext_resource type="Script" path="res://characters/main_character.gd" id="1_a2n4k"]
+[ext_resource type="Script" path="res://scripts/act2_casserole_crisis.gd" id="2_b5n7p"]
+
+[node name="Act2_CasseroleCrisis" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_b5n7p")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6, 0.8, 0.7, 1)
+
+[node name="NeighborGarden" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -150.0
+offset_right = 700.0
+offset_bottom = -50.0
+grow_vertical = 0
+
+[node name="GardenPlants" type="GridContainer" parent="NeighborGarden"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
+
+[node name="Tomato1" type="Label" parent="NeighborGarden/GardenPlants"]
+layout_mode = 2
+text = "🍅"
+
+[node name="Herb1" type="Label" parent="NeighborGarden/GardenPlants"]
+layout_mode = 2
+text = "🌿"
+
+[node name="Carrot1" type="Label" parent="NeighborGarden/GardenPlants"]
+layout_mode = 2
+text = "🥕"
+
+[node name="Tomato2" type="Label" parent="NeighborGarden/GardenPlants"]
+layout_mode = 2
+text = "🍅"
+
+[node name="Herb2" type="Label" parent="NeighborGarden/GardenPlants"]
+layout_mode = 2
+text = "🌿"
+
+[node name="Lettuce1" type="Label" parent="NeighborGarden/GardenPlants"]
+layout_mode = 2
+text = "🥬"
+
+[node name="SandraLocation" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_vertical = 2
+
+[node name="SandraSprite" type="ColorRect" parent="SandraLocation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -40.0
+offset_right = 25.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.7, 0.6, 1)
+
+[node name="SandraHat" type="ColorRect" parent="SandraLocation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -50.0
+offset_right = 30.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.6, 0.3, 1)
+
+[node name="RosemaryAura" type="Label" parent="SandraLocation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -70.0
+offset_right = 20.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "✨🌿✨"
+horizontal_alignment = 1
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(600, 300)
+script = ExtResource("1_a2n4k")
+
+[node name="PlayerSprite" type="ColorRect" parent="Player"]
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+color = Color(0.8, 0.6, 0.4, 1)
+
+[node name="SlightlyBetterClothes" type="ColorRect" parent="Player"]
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = 20.0
+color = Color(0.4, 0.5, 0.6, 1)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsPanel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 220.0
+grow_horizontal = 0
+
+[node name="StatsContainer" type="VBoxContainer" parent="UI/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BurnoutLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+text = "🔥 Burnout: 75%"
+
+[node name="HealthLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+text = "❤️ Health: 65%"
+
+[node name="SocialLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+text = "😊 Social: 45%"
+
+[node name="CookingLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+text = "🍳 Cooking: 15%"
+
+[node name="FarmingLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
+layout_mode = 2
+text = "🌱 Farming: 5%"
+
+[node name="DialogueBox" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -120.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueText" type="RichTextLabel" parent="UI/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=green]Sandra:[/color] I see you looking at my garden, dear. Plants sense when someone needs grounding."
+
+[node name="MinigameButtons" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 100.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CookingBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🍳 Overcooked but Chill"
+
+[node name="GroceryBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🛒 Grocery Quest"
+
+[node name="FridgeBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🧊 Fridge Tetris"
+
+[node name="TalkToSandraBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "💬 Talk to Sandra"

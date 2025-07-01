@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqmxy8j7nwsj2"]
 
-[ext_resource type="Script" uid="uid://bu5v7udttubic" path="res://scripts/act1_burnout_boulevard.gd" id="1_8j7nw"]
-[ext_resource type="Script" uid="uid://d04vmapa7hdds" path="res://scripts/player.gd" id="2_player"]
+[ext_resource type="Script" uid="uid://b3nbhfn1nlaon" path="res://scripts/act1_burnout_boulevard.gd" id="1_8j7nw"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_player"]
 
 [node name="Act1BurnoutBoulevard" type="Control"]
 layout_mode = 3

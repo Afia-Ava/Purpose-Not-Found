@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqmxy8j7nwsj2"]
 
-[ext_resource type="Script" path="res://scripts/act1_burnout_boulevard.gd" id="1_8j7nw"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_player"]
+[ext_resource type="Script" uid="uid://bu5v7udttubic" path="res://scripts/act1_burnout_boulevard.gd" id="1_8j7nw"]
+[ext_resource type="Script" uid="uid://d04vmapa7hdds" path="res://scripts/player.gd" id="2_player"]
 
 [node name="Act1BurnoutBoulevard" type="Control"]
 layout_mode = 3
@@ -20,6 +20,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DialogueBox" type="Panel" parent="UI"]
 layout_mode = 1
@@ -43,6 +45,8 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
 text = "Welcome to Purpose Not Found!"
 
@@ -55,6 +59,7 @@ offset_left = 10.0
 offset_top = -150.0
 offset_right = 200.0
 offset_bottom = -10.0
+grow_vertical = 0
 
 [node name="StatsContainer" type="VBoxContainer" parent="UI/StatsPanel"]
 layout_mode = 1
@@ -65,6 +70,8 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BurnoutLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
 layout_mode = 2
@@ -84,7 +91,7 @@ text = "🍳 Cooking: 10%"
 
 [node name="MinigameButtons" type="VBoxContainer" parent="UI"]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -92,6 +99,8 @@ anchor_bottom = 0.5
 offset_left = -200.0
 offset_top = -100.0
 offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="PitchDitchBtn" type="Button" parent="UI/MinigameButtons"]
 layout_mode = 2

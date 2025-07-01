@@ -1,6 +1,5 @@
 extends Node
 
-# Global game data singleton for tracking progress across scenes
 class_name GameData
 
 static var minigame_results: Dictionary = {}

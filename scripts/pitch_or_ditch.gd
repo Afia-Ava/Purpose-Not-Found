@@ -1,8 +1,5 @@
 extends Control
 
-# Pitch or Ditch Minigame
-# Try to impress a VC without using too many buzzwords or you'll crash the call
-
 @onready var stress_bar = $StressBar
 @onready var vc_reaction = $VCReaction
 @onready var score_label = $ScoreLabel
@@ -12,8 +9,6 @@ var stress_level: int = 50
 var vc_score: int = 0
 var buzzwords_used: int = 0
 var game_over: bool = false
-
-# Buzzword categories and their effects
 var buzzword_effects = {
 	"leveraging synergy": {"stress": 15, "vc_love": 20, "cringe": 10},
 	"disrupting disruption": {"stress": 25, "vc_love": 30, "cringe": 40},
@@ -26,7 +21,6 @@ var buzzword_effects = {
 	"sustainable practices": {"stress": 0, "vc_love": 10, "cringe": -10}
 }
 
-# VC reaction templates based on score and cringe level
 var vc_reactions = {
 	"low_score": [
 		"I'm not seeing the hockey stick growth potential here...",
@@ -60,7 +54,6 @@ func _ready():
 	result_timer.timeout.connect(_end_game)
 
 func _connect_buttons():
-	# Connect all buzzword buttons
 	for button in $BuzzwordButtons.get_children():
 		button.pressed.connect(_on_buzzword_pressed.bind(button.text))
 
@@ -70,21 +63,11 @@ func _on_buzzword_pressed(buzzword: String):
 		
 	buzzwords_used += 1
 	var effects = buzzword_effects[buzzword]
-	
-	# Apply effects
 	stress_level += effects["stress"]
-	vc_score += effects["vc_love"]
-	
-	# Cap stress at 100
+	vc_score += effects["vc_love"]	
 	stress_level = min(stress_level, 100)
-	
-	# Update UI
 	_update_ui()
-	
-	# Show reaction
-	_show_vc_reaction(buzzword, effects)
-	
-	# Check for game over conditions
+	_show_vc_reaction(buzzword, effects)	
 	if stress_level >= 100:
 		_trigger_stress_crash()
 	elif buzzwords_used >= 3:
@@ -106,14 +89,12 @@ func _show_vc_reaction(buzzword: String, effects: Dictionary):
 	else:
 		reaction = "Chad nods thoughtfully at '" + buzzword + "'"
 		color = "white"
-	
 	vc_reaction.text = "[center][color=" + color + "]" + reaction + "[/color][/center]"
 
 func _trigger_stress_crash():
 	game_over = true
 	vc_reaction.text = "[center][color=red]🔥 STRESS OVERLOAD! 🔥\nYou freeze up mid-sentence. Chad politely ends the call.[/color][/center]"
 	
-	# Return to Act 1 with consequences
 	await get_tree().create_timer(3.0).timeout
 	_return_to_act1(false)
 
@@ -121,7 +102,6 @@ func _update_ui():
 	stress_bar.value = stress_level
 	score_label.text = "💰 VC Score: " + str(vc_score)
 	
-	# Change stress bar color based on level
 	if stress_level < 30:
 		stress_bar.modulate = Color.GREEN
 	elif stress_level < 70:
@@ -141,7 +121,6 @@ func _end_game():
 	_return_to_act1(success)
 
 func _calculate_final_result() -> bool:
-	# Success criteria: decent VC score without too much cringe
 	var total_cringe = 0
 	for button in $BuzzwordButtons.get_children():
 		if button.button_pressed:
@@ -168,7 +147,6 @@ func _show_final_reaction(success: bool):
 	vc_reaction.text = "[center][color=" + color + "]Chad: '" + reaction + "'[/color][/center]"
 
 func _return_to_act1(success: bool):
-	# Store results for Act 1 to process
 	if success:
 		GameData.set_minigame_result("pitch_or_ditch", {"success": true, "vc_score": vc_score})
 	else:

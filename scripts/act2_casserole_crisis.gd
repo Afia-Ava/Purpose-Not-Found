@@ -1,8 +1,5 @@
 extends Control
 
-# Act 2: Casserole Crisis Script  
-# Meeting Sandra, learning to cook, discovering there's more to life than ramen
-
 @onready var player = $Player
 @onready var dialogue_text = $UI/DialogueBox/DialogueText
 @onready var burnout_label = $UI/StatsPanel/StatsContainer/BurnoutLabel
@@ -10,7 +7,6 @@ extends Control
 @onready var social_label = $UI/StatsPanel/StatsContainer/SocialLabel
 @onready var cooking_label = $UI/StatsPanel/StatsContainer/CookingLabel
 @onready var farming_label = $UI/StatsPanel/StatsContainer/FarmingLabel
-
 @onready var cooking_btn = $UI/MinigameButtons/CookingBtn
 @onready var grocery_btn = $UI/MinigameButtons/GroceryBtn
 @onready var fridge_btn = $UI/MinigameButtons/FridgeBtn
@@ -20,7 +16,6 @@ var current_dialogue_index: int = 0
 var act2_dialogues: Array[Dictionary] = []
 var sandra_conversation_stage: int = 0
 
-# Sandra's wisdom quotes for different stages
 var sandra_quotes = [
 	"I see you looking at my garden, dear. Plants sense when someone needs grounding.",
 	"You know, I've never seen someone look so hungry while holding a full coffee cup.",
@@ -68,8 +63,7 @@ func _connect_signals():
 	cooking_btn.pressed.connect(_on_cooking_pressed)
 	grocery_btn.pressed.connect(_on_grocery_pressed)
 	fridge_btn.pressed.connect(_on_fridge_pressed)
-	talk_sandra_btn.pressed.connect(_on_talk_sandra_pressed)
-	
+	talk_sandra_btn.pressed.connect(_on_talk_sandra_pressed)	
 	player.stat_changed.connect(_on_stat_changed)
 
 func _start_opening_scene():
@@ -84,7 +78,6 @@ func _advance_dialogue():
 		var color = _get_speaker_color(dialogue["speaker"])
 		dialogue_text.text = "[color=" + color + "]" + dialogue["speaker"] + ":[/color] " + dialogue["text"]
 		current_dialogue_index += 1
-		
 		if dialogue["speaker"] != "Player":
 			await get_tree().create_timer(4.0).timeout
 			_advance_dialogue()
@@ -126,12 +119,9 @@ func _have_sandra_conversation():
 	if sandra_conversation_stage < sandra_quotes.size():
 		var quote = sandra_quotes[sandra_conversation_stage]
 		dialogue_text.text = "[color=green]Sandra:[/color] " + quote
-		sandra_conversation_stage += 1
-		
-		# Award emotional intelligence for having real conversations
+		sandra_conversation_stage += 1		
 		player.update_skill("emotional", 5)
 		
-		# Special responses based on conversation stage
 		match sandra_conversation_stage:
 			2:
 				await get_tree().create_timer(3.0).timeout
@@ -160,18 +150,17 @@ func _update_ui():
 	cooking_label.text = "🍳 Cooking: " + str(player.cooking_skill) + "%"
 	farming_label.text = "🌱 Farming: " + str(player.farming_skill) + "%"
 
-# Act 2 specific interactions
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		if current_dialogue_index < act2_dialogues.size():
 			_advance_dialogue()
 	
-	# Easter eggs for Act 2
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
-			KEY_G:  # Garden interaction
+			KEY_G:
 				dialogue_text.text = "[color=green]Sandra:[/color] Each plant here has a story. This tomato? Took three tries to get right."
-			KEY_S:  # Smell the garden
+			KEY_S: 
 				dialogue_text.text = "[color=gray][i]You breathe in. Rosemary, lavender, and something that smells like... hope?[/i][/color]"
-			KEY_H:  # Humble realization
+			KEY_H: 
 				dialogue_text.text = "[color=yellow]You:[/color] I spent $200,000 trying to 'disrupt' agriculture and Sandra's doing it in her backyard for free."
+

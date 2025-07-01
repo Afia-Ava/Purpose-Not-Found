@@ -1,8 +1,5 @@
 extends Control
 
-# Act 5: Farmhouse Festival - The Final Transformation
-# Host a harvest dinner, reconnect with old friends, show your growth
-
 @onready var player = $Player
 @onready var dialogue_text = $UI/DialogueBox/DialogueText
 @onready var zen_farmer_btn = $UI/EndingButtons/ZenFarmerBtn
@@ -12,7 +9,6 @@ extends Control
 var ending_selected: bool = false
 var dinner_party_complete: bool = false
 
-# Final dialogue sequence showing transformation
 var final_dialogues = [
 	{
 		"speaker": "Narrator",
@@ -59,7 +55,6 @@ func _connect_signals():
 	teach_others_btn.pressed.connect(_on_teach_others_ending)
 
 func _update_final_stats():
-	# Show the transformed character stats
 	player.burnout_level = 15
 	player.health = 95
 	player.social_energy = 85
@@ -67,7 +62,6 @@ func _update_final_stats():
 	player.farming_skill = 90
 	player.emotional_intelligence = 85
 	
-	# Update UI to reflect final state
 	player.current_state = player.CharacterState.ZEN_FARMER
 
 func _start_final_scene():
@@ -98,9 +92,7 @@ func _get_speaker_color(speaker: String) -> String:
 		_: return "white"
 
 func _show_ending_choices():
-	dialogue_text.text = "[center][color=gold]🌟 THE PATH FORWARD 🌟\n\nYou've transformed your life. Now, what's next?[/color][/center]"
-	
-	# Enable ending choice buttons
+	dialogue_text.text = "[center][color=gold]🌟 THE PATH FORWARD 🌟\n\nYou've transformed your life. Now, what's next?[/color][/center]"	
 	zen_farmer_btn.disabled = false
 	climate_startup_btn.disabled = false
 	teach_others_btn.disabled = false
@@ -108,8 +100,7 @@ func _show_ending_choices():
 func _on_zen_farmer_ending():
 	if ending_selected:
 		return
-	ending_selected = true
-	
+	ending_selected = true	
 	dialogue_text.text = "[center][color=green]🧘‍♂️ ZEN FARMER ENDING 🧘‍♂️\n\nYou choose peace. Your farm becomes a sanctuary where burnt-out tech workers come to heal. You have chickens now. They're very wise.[/color][/center]"
 	_show_final_message("zen_farmer")
 
@@ -150,7 +141,6 @@ func _show_final_message(ending_type: String):
 	
 	dialogue_text.text = final_message
 
-# Easter eggs and interactions
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://scenes/menu/mainMenu.tscn")
@@ -159,12 +149,12 @@ func _input(event):
 		if current_dialogue_index < final_dialogues.size():
 			_advance_dialogue()
 	
-	# Final easter eggs
 	if event is InputEventKey and event.pressed and not ending_selected:
 		match event.keycode:
-			KEY_C:  # Check chickens
+			KEY_C:  
 				dialogue_text.text = "[color=gray]Your chickens are named Agile, Scrum, and DevOps. They're very productive.[/color]"
-			KEY_G:  # Garden wisdom
+			KEY_G: 
 				dialogue_text.text = "[color=green]Sandra:[/color] Look how far you've grown, dear. From ramen cups to harvest festivals."
-			KEY_M:  # Marcus reaction
+			KEY_M:   
 				dialogue_text.text = "[color=white]Marcus:[/color] Your life now has the perfect minimalist aesthetic: only what brings joy."
+

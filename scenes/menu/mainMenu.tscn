@@ -77,7 +77,7 @@ text = "🍳 Act 2: Casserole Crisis"
 
 [node name="Act5Btn" type="Button" parent="MenuButtons"]
 layout_mode = 2
-text = "🌟 Act 5: Farmhouse Festival"
+text = "🌟 Act 3: Farmhouse Festival"
 
 [node name="CreditsBtn" type="Button" parent="MenuButtons"]
 layout_mode = 2

@@ -22,6 +22,20 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+# Godot
+.import/
+.godot/
+export.cfg
+export_presets.cfg
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Backup
+*.tmp
+*.log
+
 
 # Logs
 *.log

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://raghqd3r2muv"]
+
+[ext_resource type="Script" uid="uid://cs3o0ap1bhk5q" path="res://cleaning_minigame.gd" id="1_g1rac"]
+[ext_resource type="Script" uid="uid://qq4l70w5732y" path="res://scripts/dish.gd" id="2_kcope"]
+[ext_resource type="Script" uid="uid://1unw2hhofp0r" path="res://scripts/sponge.gd" id="3_kcope"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kcope"]
+
+[node name="Cleaning minigame" type="Node2D"]
+position = Vector2(2, 1)
+script = ExtResource("1_g1rac")
+metadata/_edit_group_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dish" type="Node2D" parent="."]
+script = ExtResource("2_kcope")
+
+[node name="Dish Sprite" type="Sprite2D" parent="Dish"]
+texture = SubResource("PlaceholderTexture2D_kcope")
+
+[node name="Dirt Overlay" type="Sprite2D" parent="Dish"]
+
+[node name="Area2D" type="Area2D" parent="Dish"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dish/Area2D"]
+
+[node name="Sponge" type="Node2D" parent="."]
+script = ExtResource("3_kcope")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sponge"]
+
+[node name="Area2D" type="Area2D" parent="Sponge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponge/Area2D"]

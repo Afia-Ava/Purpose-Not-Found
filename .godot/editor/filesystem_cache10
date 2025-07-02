@@ -1,12 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1751482995
-Traceable layout.png::CompressedTexture2D/CompressedTexture2D::2713183276457632121::1751425975::1751426038::1::::<><><>0<>0<>21274940c28cbfae8a416165ed68f95c<>res://.godot/imported/Traceable layout.png-edfbc51f7c0c3a826046242fc6c92210.ctex::
-::res://Footage dump/::1751426002
+::res://::1751492546
+cleaning_minigame.gd::GDScript/GDScript::6094937837085822972::1751492515::0::1::::<>Node2D<><>0<>0<><>::
+::res://Assets/::1751492546
+Traceable layout.png::CompressedTexture2D::2713183276457632121::1751425975::1751492546::1::::<><><>0<>0<>41159aa0947418bba69fb3f498fb5b9a<>res://.godot/imported/Traceable layout.png-3a70f5bd620d4aea6dd3c6649b361767.ctex::
+Upscaled Layout.png::CompressedTexture2D::9029665313884076195::1751492172::1751492551::1::::<><><>0<>0<>f4bf16d41fb638ab97f45d8b4a39ea02<>res://.godot/imported/Upscaled Layout.png-721f400ffef77dd062c1615f699d035e.ctex::
+::res://Assets/Footage dump/::1751426002
 ::res://scenes/::1751346901
-::res://scenes/acts/::1751389842
-act1_burnout_boulevard.tscn::PackedScene/PackedScene::3535655813483668949::1751389842::0::1::::<><><>0<>0<><>::uid://bu5v7udttubic::::res://scripts/act1_burnout_boulevard.gd<>uid://d04vmapa7hdds::::res://scripts/player.gd
-::res://scenes/menu/::1751389842
-mainMenu.tscn::PackedScene/PackedScene::2537392618513851232::1751389842::0::1::::<><><>0<>0<><>::uid://ntk7r55jtjq5::::res://scripts/main_menu.gd
+::res://scenes/acts/::1751492515
+act1_burnout_boulevard.tscn::PackedScene/PackedScene::3535655813483668949::1751484943::0::1::::<><><>0<>0<><>::uid://bu5v7udttubic::::res://scripts/act1_burnout_boulevard.gd<>uid://d04vmapa7hdds::::res://scripts/player.gd
+act1_cleaningminigame.tscn::PackedScene/PackedScene::1193587990664484501::1751492515::0::1::::<><><>0<>0<><>::uid://cs3o0ap1bhk5q::::res://cleaning_minigame.gd
+::res://scenes/menu/::1751484943
+mainMenu.tscn::PackedScene/PackedScene::2537392618513851232::1751484943::0::1::::<><><>0<>0<><>::uid://ntk7r55jtjq5::::res://scripts/main_menu.gd
 ::res://scripts/::1751347157
 act1_burnout_boulevard.gd::GDScript/GDScript::3853462147319461510::1751346901::0::1::::<>Control<><>0<>0<><>::
 act2_casserole_crisis.gd::GDScript/GDScript::7950972331649172339::1751346901::0::1::::<>Control<><>0<>0<><>::

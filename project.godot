@@ -13,7 +13,9 @@ config_version=5
 config/name="Purpose not found"
 run/main_scene="res://scenes/menu/mainMenu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="uid://bi0s0v6cwqxw8"
+config/icon="uid://bi0s0v6cwqxw8"
+config/name.windows=""
 
 [dotnet]
 
@@ -22,4 +24,3 @@ project/assembly_name="Purpose not found"
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)

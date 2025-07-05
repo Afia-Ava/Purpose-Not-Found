@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dnjsgwe1isyyq"]
+
+[ext_resource type="Script" uid="uid://dk5f252so0y4a" path="res://scripts/fryingpanscript.gd" id="1_bgx0i"]
+[ext_resource type="Texture2D" uid="uid://c80ruw1d4ekwr" path="res://tempAssets/Placeholder-Fryingpan.png" id="2_1wlap"]
+[ext_resource type="Script" uid="uid://ccm71s30mgh30" path="res://scripts/spongeScript.gd" id="3_uiawl"]
+[ext_resource type="Texture2D" uid="uid://detbm38i2jo0y" path="res://tempAssets/Placeholder-sponge.png" id="4_hfche"]
+[ext_resource type="Script" uid="uid://tfk6todpnktn" path="res://scripts/sinkScript.gd" id="5_hfche"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_uiawl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfche"]
+radius = 277.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_abkln"]
+size = Vector2(700, 700)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hfche"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uiawl"]
+size = Vector2(1296, 875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abkln"]
+size = Vector2(233, 161)
+
+[node name="Cleaning" type="Node2D"]
+
+[node name="Fryingpan" type="CharacterBody2D" parent="."]
+z_index = 1
+script = ExtResource("1_bgx0i")
+friction = 200.0
+slide_friction = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Fryingpan"]
+texture = SubResource("ImageTexture_uiawl")
+
+[node name="Placeholder-fryingpan" type="Sprite2D" parent="Fryingpan/Sprite2D"]
+position = Vector2(-21, 195)
+texture = ExtResource("2_1wlap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fryingpan"]
+shape = SubResource("CircleShape2D_hfche")
+
+[node name="DirtOverlay" type="Sprite2D" parent="Fryingpan"]
+texture = SubResource("PlaceholderTexture2D_abkln")
+flip_v = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+script = ExtResource("5_hfche")
+sink_width = 3000.0
+sink_height = 2000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(3840, 2200)
+texture = SubResource("PlaceholderTexture2D_hfche")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uiawl")
+
+[node name="Sponge" type="CharacterBody2D" parent="."]
+z_index = 2
+position = Vector2(433, 294)
+script = ExtResource("3_uiawl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sponge"]
+scale = Vector2(0.308333, 0.320302)
+texture = ExtResource("4_hfche")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponge"]
+shape = SubResource("RectangleShape2D_abkln")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+zoom = Vector2(0.3, 0.3)

@@ -50,45 +50,6 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "Welcome to Purpose Not Found!"
 
-[node name="StatsPanel" type="Panel" parent="UI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = -10.0
-grow_vertical = 0
-
-[node name="StatsContainer" type="VBoxContainer" parent="UI/StatsPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BurnoutLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
-layout_mode = 2
-text = "🔥 Burnout: 80%"
-
-[node name="HealthLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
-layout_mode = 2
-text = "❤️ Health: 40%"
-
-[node name="SocialLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
-layout_mode = 2
-text = "😊 Social: 30%"
-
-[node name="CookingLabel" type="Label" parent="UI/StatsPanel/StatsContainer"]
-layout_mode = 2
-text = "🍳 Cooking: 10%"
-
 [node name="MinigameButtons" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 6

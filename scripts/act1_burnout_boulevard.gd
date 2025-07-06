@@ -2,10 +2,7 @@ extends Control
 
 @onready var player = $Player
 @onready var dialogue_text = $UI/DialogueBox/DialogueText
-@onready var burnout_label = $UI/StatsPanel/StatsContainer/BurnoutLabel
-@onready var health_label = $UI/StatsPanel/StatsContainer/HealthLabel
-@onready var social_label = $UI/StatsPanel/StatsContainer/SocialLabel
-@onready var cooking_label = $UI/StatsPanel/StatsContainer/CookingLabel
+# Stats panel removed - cleaner UI
 @onready var pitch_ditch_btn = $UI/MinigameButtons/PitchDitchBtn
 @onready var slack_attack_btn = $UI/MinigameButtons/SlackAttackBtn
 @onready var cleaning_btn = $UI/MinigameButtons/CleaningBtn
@@ -31,7 +28,6 @@ var character_dialogue = {
 func _ready():
 	_setup_act1_dialogues()
 	_connect_signals()
-	_update_ui()	
 	_start_opening_scene()
 
 func _setup_act1_dialogues():
@@ -67,8 +63,6 @@ func _connect_signals():
 	pitch_ditch_btn.pressed.connect(_on_pitch_ditch_pressed)
 	slack_attack_btn.pressed.connect(_on_slack_attack_pressed)
 	cleaning_btn.pressed.connect(_on_cleaning_pressed)
-	
-	player.stat_changed.connect(_on_stat_changed)
 
 func _start_opening_scene():
 	dialogue_text.text = "[color=gray][i]The Y Combinator rejection email sits open on your laptop. Your startup dreams are crumbling faster than the week-old pizza in the corner...[/i][/color]"	
@@ -115,13 +109,8 @@ func _on_cleaning_pressed():
 	get_tree().change_scene_to_file("res://scenes/minigames/dishwashing_rhythm.tscn")
 
 func _on_stat_changed(_stat_name: String, _new_value: int):
-	_update_ui()
-
-func _update_ui():
-	burnout_label.text = "🔥 Burnout: " + str(player.burnout_level) + "%"
-	health_label.text = "❤️ Health: " + str(player.health) + "%"
-	social_label.text = "😊 Social: " + str(player.social_energy) + "%"
-	cooking_label.text = "🍳 Cooking: " + str(player.cooking_skill) + "%"
+	# No stats tracking needed for story-driven experience
+	pass
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -130,9 +119,5 @@ func _input(event):
 	
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
-			KEY_1:
-				player.update_burnout(-10)
-			KEY_2:
-				player.update_skill("cooking", 5)
 			KEY_3:
 				dialogue_text.text = "[color=orange]Kyle:[/color] Did you know our coffee machine is worth more than most people's cars? Peak 2023 energy."

@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://act2_casserole_crisis"]
+
+[ext_resource type="Script" path="res://scripts/act2_casserole_crisis.gd" id="1_act2_script"]
+[ext_resource type="Texture2D" path="res://assets/kitchen-scene.jpg" id="2_kitchen_bg"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_player_script"]
+
+[node name="Act2CasseroleCrisis" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_act2_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kitchen_bg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueBox" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueText" type="RichTextLabel" parent="UI/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Welcome to Act 2: Casserole Crisis!"
+
+[node name="MinigameButtons" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = -20.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CookingBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+text = "🍳 Cooking"
+
+[node name="DishwashingBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+text = "🧽 Dishwashing"
+
+[node name="GardeningBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+text = "🌱 Gardening"
+
+[node name="TalkToSandraBtn" type="Button" parent="UI/MinigameButtons"]
+layout_mode = 2
+text = "💬 Talk to Sandra"
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("3_player_script")

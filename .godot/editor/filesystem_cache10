@@ -1,17 +1,22 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1751525142
+::res://::1751789811
 Traceable layout.png::CompressedTexture2D/CompressedTexture2D::2713183276457632121::1751425975::1751426038::1::::<><><>0<>0<>21274940c28cbfae8a416165ed68f95c<>res://.godot/imported/Traceable layout.png-edfbc51f7c0c3a826046242fc6c92210.ctex::
+::res://assets/::1751788230
+kitchen-scene.jpg::CompressedTexture2D/CompressedTexture2D::4792098302053058556::1751782656::1751783197::1::::<><><>0<>0<>c1fb5bb7af89ff51c2bffb5cbaf9e6f8<>res://.godot/imported/kitchen-scene.jpg-42cea74f88d4946c5907efe84d016910.ctex::
+sink-scene.jpg::CompressedTexture2D/CompressedTexture2D::4050838873210973982::1751782679::1751783197::1::::<><><>0<>0<>ddda9395c99cbe909f416d3904bb05c0<>res://.godot/imported/sink-scene.jpg-99b67801fdbbe0b834c84ed656db4c02.ctex::
+trees-bg.jpg::CompressedTexture2D/CompressedTexture2D::1279809182271812790::1751788116::1751788230::1::::<><><>0<>0<>98174cb529f9cbce06b412def236b2ad<>res://.godot/imported/trees-bg.jpg-911bc1b437bcc8ee2044bd6a1f22b6d8.ctex::
 ::res://Footage dump/::1751491968
-::res://scenes/::1751491970
-::res://scenes/acts/::1751492007
-act1_burnout_boulevard.tscn::PackedScene::3535655813483668949::1751492007::0::1::::<><><>0<>0<><>::uid://bu5v7udttubic::::res://scripts/act1_burnout_boulevard.gd<>uid://d04vmapa7hdds::::res://scripts/player.gd
-::res://scenes/menu/::1751492007
-mainMenu.tscn::PackedScene::2537392618513851232::1751492007::0::1::::<><><>0<>0<><>::uid://ntk7r55jtjq5::::res://scripts/main_menu.gd
-::res://scripts/::1751491970
-act1_burnout_boulevard.gd::GDScript/GDScript::3853462147319461510::1751346901::0::1::::<>Control<><>0<>0<><>::
-act2_casserole_crisis.gd::GDScript/GDScript::7950972331649172339::1751346901::0::1::::<>Control<><>0<>0<><>::
-act5_farmhouse_festival.gd::GDScript/GDScript::5514715864194066827::1751346901::0::1::::<>Control<><>0<>0<><>::
+::res://scenes/::1751525813
+::res://scenes/acts/::1751789322
+act1_burnout_boulevard.tscn::PackedScene::3535655813483668949::1751789161::0::1::::<><><>0<>0<><>::uid://bu5v7udttubic::::res://scripts/act1_burnout_boulevard.gd<>uid://d04vmapa7hdds::::res://scripts/player.gd
+act2_casserole_crisis.tscn::PackedScene::-1::1751789548::0::1::::<><><>0<>0<><>::res://scripts/act2_casserole_crisis.gd<>res://assets/kitchen-scene.jpg<>res://scripts/player.gd
+::res://scenes/menu/::1751789609
+mainMenu.tscn::PackedScene::2537392618513851232::1751789609::0::1::::<><><>0<>0<><>::uid://ntk7r55jtjq5::::res://scripts/main_menu.gd<>uid://sh7jgn5heg5s::::res://assets/trees-bg.jpg
+::res://scripts/::1751788533
+act1_burnout_boulevard.gd::GDScript::3853462147319461510::1751789495::0::1::::<>Control<><>0<>0<><>::
+act2_casserole_crisis.gd::GDScript::7950972331649172339::1751789453::0::1::::<>Control<><>0<>0<><>::
+act5_farmhouse_festival.gd::GDScript/GDScript::5514715864194066827::1751787647::0::1::::<>Control<><>0<>0<><>::
 game_data.gd::GDScript/GDScript::6223363569702823359::1751346901::0::1::::GameData<>Node<><>0<>0<><>::
-main_menu.gd::GDScript/GDScript::952343400571110474::1751347157::0::1::::<>Control<><>0<>0<><>::
+main_menu.gd::GDScript/GDScript::952343400571110474::1751788610::0::1::::<>Control<><>0<>0<><>::
 pitch_or_ditch.gd::GDScript/GDScript::4152768861427172887::1751346901::0::1::::<>Control<><>0<>0<><>::
 player.gd::GDScript/GDScript::8975146606487908476::1751346901::0::1::::Player<>Node<><>0<>0<><>::

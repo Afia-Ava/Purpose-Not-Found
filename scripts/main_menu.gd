@@ -3,6 +3,8 @@ extends Control
 # Main Menu Script for Purpose Not Found
 # Handles navigation between acts and game modes
 
+@onready var start_btn = $TitleContainer/StartButton
+@onready var menu_buttons = $MenuButtons
 @onready var new_game_btn = $MenuButtons/NewGameBtn
 @onready var act1_btn = $MenuButtons/Act1Btn
 @onready var act2_btn = $MenuButtons/Act2Btn
@@ -10,11 +12,13 @@ extends Control
 @onready var credits_btn = $MenuButtons/CreditsBtn
 @onready var quit_btn = $MenuButtons/QuitBtn
 
+var showing_menu = false
+
 func _ready():
 	_connect_buttons()
-	_setup_intro_animation()
 
 func _connect_buttons():
+	start_btn.pressed.connect(_on_start_pressed)
 	new_game_btn.pressed.connect(_on_new_game_pressed)
 	act1_btn.pressed.connect(_on_act1_pressed)
 	act2_btn.pressed.connect(_on_act2_pressed)
@@ -22,36 +26,17 @@ func _connect_buttons():
 	credits_btn.pressed.connect(_on_credits_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
 
-func _setup_intro_animation():
-	# Animate the character transformation preview
-	var zen_farmer = $CharacterPreview/ZenFarmerPreview
-	
-	# Start with tech bro visible
-	zen_farmer.modulate = Color(1, 1, 1, 0)
-	
-	# Create a repeating transformation animation
-	_animate_transformation()
-
-func _animate_transformation():
-	var tech_bro = $CharacterPreview/TechBroPreview
-	var zen_farmer = $CharacterPreview/ZenFarmerPreview
-	
-	var tween = create_tween()
-	tween.set_loops()
-	
-	# Tech bro visible for 3 seconds
-	tween.tween_interval(3.0)
-	
-	# Fade to zen farmer
-	tween.tween_property(tech_bro, "modulate", Color(1, 1, 1, 0), 1.0)
-	tween.parallel().tween_property(zen_farmer, "modulate", Color(1, 1, 1, 1), 1.0)
-	
-	# Zen farmer visible for 3 seconds
-	tween.tween_interval(3.0)
-	
-	# Fade back to tech bro
-	tween.tween_property(zen_farmer, "modulate", Color(1, 1, 1, 0), 1.0)
-	tween.parallel().tween_property(tech_bro, "modulate", Color(1, 1, 1, 1), 1.0)
+func _on_start_pressed():
+	if not showing_menu:
+		# Show the menu buttons
+		menu_buttons.visible = true
+		start_btn.text = "BACK"
+		showing_menu = true
+	else:
+		# Hide the menu buttons
+		menu_buttons.visible = false
+		start_btn.text = "START GAME"
+		showing_menu = false
 
 func _on_new_game_pressed():
 	# Start from the beginning

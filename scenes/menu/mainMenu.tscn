@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcfeqrqkypc6c"]
+[gd_scene load_steps=3 format=3 uid="uid://bcfeqrqkypc6c"]
 
 [ext_resource type="Script" uid="uid://ntk7r55jtjq5" path="res://scripts/main_menu.gd" id="2_k4r8m"]
+[ext_resource type="Texture2D" uid="uid://sh7jgn5heg5s" path="res://assets/trees-bg.jpg" id="3_trees_bg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_k4r8m")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,32 +23,37 @@ offset_right = 4.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1, 0.1, 0.15, 1)
+texture = ExtResource("3_trees_bg")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TitleContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -300.0
-offset_top = 50.0
-offset_right = 300.0
-offset_bottom = 200.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GameTitle" type="Label" parent="TitleContainer"]
 layout_mode = 2
-text = "🌱 PURPOSE NOT FOUND 🌱"
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "PURPOSE NOT FOUND"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Subtitle" type="RichTextLabel" parent="TitleContainer"]
+[node name="StartButton" type="Button" parent="TitleContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-bbcode_enabled = true
-text = "[center][color=gray]From Tech Bro to Zen Farmer[/color]
-[color=cyan]A Visual Novel × Life Sim × Comedy RPG[/color][/center]"
-fit_content = true
+theme_override_font_sizes/font_size = 24
+text = "START GAME"
 
 [node name="MenuButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -62,6 +68,7 @@ offset_right = 150.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+visible = false
 
 [node name="NewGameBtn" type="Button" parent="MenuButtons"]
 layout_mode = 2
@@ -77,7 +84,7 @@ text = "🍳 Act 2: Casserole Crisis"
 
 [node name="Act5Btn" type="Button" parent="MenuButtons"]
 layout_mode = 2
-text = "🌟 Act 5: Farmhouse Festival"
+text = "🌟 Act 5: Farmhouse"
 
 [node name="CreditsBtn" type="Button" parent="MenuButtons"]
 layout_mode = 2
@@ -86,141 +93,6 @@ text = "👥 Credits"
 [node name="QuitBtn" type="Button" parent="MenuButtons"]
 layout_mode = 2
 text = "👋 Quit"
-
-[node name="CharacterPreview" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -150.0
-offset_right = -50.0
-offset_bottom = 150.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="TechBroPreview" type="Control" parent="CharacterPreview"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_top = 20.0
-offset_right = -50.0
-offset_bottom = 120.0
-grow_horizontal = 0
-
-[node name="TechBroSprite" type="ColorRect" parent="CharacterPreview/TechBroPreview"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.8, 0.6, 0.4, 1)
-
-[node name="Hoodie" type="ColorRect" parent="CharacterPreview/TechBroPreview"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.3, 0.3, 0.3, 1)
-
-[node name="StressedFace" type="Label" parent="CharacterPreview/TechBroPreview"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -60.0
-offset_right = 15.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "😤"
-horizontal_alignment = 1
-
-[node name="Arrow" type="Label" parent="CharacterPreview"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -10.0
-offset_right = 15.0
-offset_bottom = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "→"
-horizontal_alignment = 1
-
-[node name="ZenFarmerPreview" type="Control" parent="CharacterPreview"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -120.0
-offset_right = -50.0
-offset_bottom = -20.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="FarmerSprite" type="ColorRect" parent="CharacterPreview/ZenFarmerPreview"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.8, 0.6, 0.4, 1)
-
-[node name="FarmerClothes" type="ColorRect" parent="CharacterPreview/ZenFarmerPreview"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.6, 0.8, 0.5, 1)
-
-[node name="ZenFace" type="Label" parent="CharacterPreview/ZenFarmerPreview"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -60.0
-offset_right = 15.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "🧘‍♂️"
-horizontal_alignment = 1
 
 [node name="GameDescription" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -236,10 +108,3 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 bbcode_enabled = true
-text = "[center][color=yellow]🎯 THE CORE LOOP 🎯[/color]
-
-[color=white]Start:[/color] Tech Bro in SF, living in a fratty startup house
-[color=white]Goal:[/color] Escape burnout, become a peaceful farmer  
-[color=white]Method:[/color] Learn cooking, cleaning, emotional maturity & community building
-
-[color=cyan]✨ Features: Pitch or Ditch • Slack Attack • Fridge Tetris • Therapy Thursdays ✨[/color][/center]"

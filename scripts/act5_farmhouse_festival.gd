@@ -154,7 +154,7 @@ func _input(event):
 			KEY_C:  
 				dialogue_text.text = "[color=gray]Your chickens are named Agile, Scrum, and DevOps. They're very productive.[/color]"
 			KEY_G: 
-				dialogue_text.text = "[color=green]Sandra:[/color] Look how far you've grown, dear. From ramen cups to harvest festivals."
+				dialogue_text.text = "[color=green]Sandra:[/color] Look how far you've grown, dear. From ramen cups to harvest time."
 			KEY_M:   
 				dialogue_text.text = "[color=white]Marcus:[/color] Your life now has the perfect minimalist aesthetic: only what brings joy."
 

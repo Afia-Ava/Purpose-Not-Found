@@ -28,6 +28,11 @@ var current_dirt_level: float = 1.0  # Current dirt amount
 var is_being_scrubbed: bool = false
 
 func _ready():
+	# Set collision layers for the pan
+	# Layer 1 = items/dishes, Layer 4 = sink walls
+	collision_layer = 1  # Pan is on layer 1
+	collision_mask = 1 + 4  # Pan collides with other items (layer 1) and sink walls (layer 4)
+	
 	# Set up initial dirt level
 	current_dirt_level = initial_dirt_level
 	

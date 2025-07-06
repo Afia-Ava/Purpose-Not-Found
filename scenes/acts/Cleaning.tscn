@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnjsgwe1isyyq"]
+[gd_scene load_steps=13 format=3 uid="uid://dnjsgwe1isyyq"]
 
 [ext_resource type="Script" uid="uid://dk5f252so0y4a" path="res://scripts/fryingpanscript.gd" id="1_bgx0i"]
 [ext_resource type="Texture2D" uid="uid://c80ruw1d4ekwr" path="res://tempAssets/Placeholder-Fryingpan.png" id="2_1wlap"]
 [ext_resource type="Script" uid="uid://ccm71s30mgh30" path="res://scripts/spongeScript.gd" id="3_uiawl"]
 [ext_resource type="Texture2D" uid="uid://detbm38i2jo0y" path="res://tempAssets/Placeholder-sponge.png" id="4_hfche"]
 [ext_resource type="Script" uid="uid://tfk6todpnktn" path="res://scripts/sinkScript.gd" id="5_hfche"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hfche"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_uiawl"]
 
@@ -15,9 +17,10 @@ radius = 277.0
 size = Vector2(700, 700)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hfche"]
+size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uiawl"]
-size = Vector2(1296, 875)
+size = Vector2(3842, 2166)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abkln"]
 size = Vector2(233, 161)
@@ -29,6 +32,11 @@ z_index = 1
 script = ExtResource("1_bgx0i")
 friction = 200.0
 slide_friction = 100.0
+movement_spin_factor = 0.3
+dirt_texture = SubResource("CanvasTexture_hfche")
+initial_dirt_level = 0.5
+cleaning_rate = 2.0
+scrub_radius = 90.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Fryingpan"]
 texture = SubResource("ImageTexture_uiawl")
@@ -41,26 +49,30 @@ texture = ExtResource("2_1wlap")
 shape = SubResource("CircleShape2D_hfche")
 
 [node name="DirtOverlay" type="Sprite2D" parent="Fryingpan"]
+visible = false
 texture = SubResource("PlaceholderTexture2D_abkln")
 flip_v = true
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 script = ExtResource("5_hfche")
 sink_width = 3000.0
 sink_height = 2000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+visible = false
 scale = Vector2(3840, 2200)
 texture = SubResource("PlaceholderTexture2D_hfche")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_uiawl")
 
 [node name="Sponge" type="CharacterBody2D" parent="."]
 z_index = 2
 position = Vector2(433, 294)
 script = ExtResource("3_uiawl")
+rotation_friction = 400.0
+pan_push_force = 1300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Sponge"]
 scale = Vector2(0.308333, 0.320302)
@@ -70,5 +82,4 @@ texture = ExtResource("4_hfche")
 shape = SubResource("RectangleShape2D_abkln")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 zoom = Vector2(0.3, 0.3)

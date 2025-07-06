@@ -1,4 +1,4 @@
+res://scenes/acts/Cleaning.tscn
 res://scenes/acts/act1_burnout_boulevard.tscn
 res://scenes/menu/mainMenu.tscn
-res://scenes/acts/Cleaning.tscn
 res://scripts/spongeScript.gd

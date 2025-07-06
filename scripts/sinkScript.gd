@@ -20,6 +20,11 @@ signal item_entered_sink(item)
 signal item_exited_sink(item)
 
 func _ready():
+	# Set collision layers for the sink detection area
+	# Layer 2 = sink detection, Layer 1 = items/dishes
+	collision_layer = 2  # This sink is on layer 2
+	collision_mask = 1   # This sink detects items on layer 1
+	
 	# Connect area signals
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -34,7 +39,6 @@ func create_sink_boundaries():
 	# Get the parent node to add walls to (they need to be in the main scene for collision)
 	var parent = get_parent()
 	if not parent:
-		print("Warning: Sink has no parent node to add boundaries to")
 		return
 	
 	# Create walls relative to the sink's global position
@@ -51,8 +55,6 @@ func create_sink_boundaries():
 	
 	# Create bottom wall
 	bottom_wall = create_wall(parent, sink_pos + Vector2(0, sink_height/2 + wall_thickness/2), Vector2(sink_width + wall_thickness*2, wall_thickness))
-	
-	print("Sink boundaries created at position: ", sink_pos)
 
 func create_wall(parent_node: Node, pos: Vector2, size: Vector2) -> StaticBody2D:
 	var wall = StaticBody2D.new()
@@ -62,6 +64,11 @@ func create_wall(parent_node: Node, pos: Vector2, size: Vector2) -> StaticBody2D
 	# Set up the collision shape
 	rect_shape.size = size
 	shape.shape = rect_shape
+	
+	# IMPORTANT: Set wall collision layers
+	# Layer 3 = sink walls (separate from items and sink detection)
+	wall.collision_layer = 4  # Walls are on layer 4
+	wall.collision_mask = 1   # Walls collide with items on layer 1
 	
 	# Position the wall
 	wall.global_position = pos
@@ -87,26 +94,22 @@ func _on_body_entered(body):
 	if body not in items_in_sink:
 		items_in_sink.append(body)
 		item_entered_sink.emit(body)
-		print(body.name + " entered the sink!")
 
 func _on_body_exited(body):
 	if body in items_in_sink:
 		items_in_sink.erase(body)
 		item_exited_sink.emit(body)
-		print(body.name + " left the sink!")
 
 func _on_area_entered(area):
 	# Handle Area2D nodes
 	if area not in items_in_sink:
 		items_in_sink.append(area)
 		item_entered_sink.emit(area)
-		print(area.name + " entered the sink!")
 
 func _on_area_exited(area):
 	if area in items_in_sink:
 		items_in_sink.erase(area)
 		item_exited_sink.emit(area)
-		print(area.name + " left the sink!")
 
 # Public functions for external control
 func get_items_in_sink() -> Array:

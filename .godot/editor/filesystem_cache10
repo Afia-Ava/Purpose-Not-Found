@@ -1,26 +1,27 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1751746833
-export_presets.cfg::TextFile::-1::1751745103::0::1::::<><><>0<>0<><>::
+::res://::1751782279
+export_presets.cfg::TextFile/TextFile::-1::1751747697::0::1::::<><><>0<>0<><>::
 Game logo.png::CompressedTexture2D/CompressedTexture2D::3000679578366489673::1751743948::1751745074::1::::<><><>0<>0<>ad4037fe1ccf93beede98e875b907707<>res://.godot/imported/Game logo.png-d5f6584dfc268efd69e2eb1646f313b3.ctex::
 Traceable layout.png::CompressedTexture2D/CompressedTexture2D::2713183276457632121::1751531415::1751531504::1::::<><><>0<>0<>21274940c28cbfae8a416165ed68f95c<>res://.godot/imported/Traceable layout.png-edfbc51f7c0c3a826046242fc6c92210.ctex::
+::res://exports/::1751747686
 ::res://Footage dump/::1751534064
 ::res://scenes/::1751534064
-::res://scenes/acts/::1751745487
-act1_burnout_boulevard.tscn::PackedScene::3535655813483668949::1751745487::0::1::::<><><>0<>0<><>::uid://bu5v7udttubic::::res://scripts/act1_burnout_boulevard.gd<>uid://d04vmapa7hdds::::res://scripts/player.gd
-Cleaning.tscn::PackedScene::8091401201679156464::1751745487::0::1::::<><><>0<>0<><>::uid://dk5f252so0y4a::::res://scripts/fryingpanscript.gd<>uid://c80ruw1d4ekwr::::res://tempAssets/Placeholder-Fryingpan.png<>uid://ccm71s30mgh30::::res://scripts/spongeScript.gd<>uid://detbm38i2jo0y::::res://tempAssets/Placeholder-sponge.png<>uid://tfk6todpnktn::::res://scripts/sinkScript.gd
-::res://scenes/menu/::1751745487
-mainMenu.tscn::PackedScene::2537392618513851232::1751745487::0::1::::<><><>0<>0<><>::uid://ntk7r55jtjq5::::res://scripts/main_menu.gd
-::res://scripts/::1751662541
+::res://scenes/acts/::1751756107
+act1_burnout_boulevard.tscn::PackedScene::3535655813483668949::1751756107::0::1::::<><><>0<>0<><>::uid://bu5v7udttubic::::res://scripts/act1_burnout_boulevard.gd<>uid://d04vmapa7hdds::::res://scripts/player.gd
+Cleaning.tscn::PackedScene::8091401201679156464::1751756107::0::1::::<><><>0<>0<><>::uid://dk5f252so0y4a::::res://scripts/fryingpanscript.gd<>uid://c80ruw1d4ekwr::::res://tempAssets/Placeholder-Fryingpan.png<>uid://ccm71s30mgh30::::res://scripts/spongeScript.gd<>uid://detbm38i2jo0y::::res://tempAssets/Placeholder-sponge.png<>uid://tfk6todpnktn::::res://scripts/sinkScript.gd
+::res://scenes/menu/::1751756107
+mainMenu.tscn::PackedScene::2537392618513851232::1751756107::0::1::::<><><>0<>0<><>::uid://ntk7r55jtjq5::::res://scripts/main_menu.gd
+::res://scripts/::1751751124
 act1_burnout_boulevard.gd::GDScript/GDScript::3853462147319461510::1751528902::0::1::::<>Control<><>0<>0<><>::
 act2_casserole_crisis.gd::GDScript/GDScript::7950972331649172339::1751528902::0::1::::<>Control<><>0<>0<><>::
 act5_farmhouse_festival.gd::GDScript/GDScript::5514715864194066827::1751528902::0::1::::<>Control<><>0<>0<><>::
-fryingpanscript.gd::GDScript/GDScript::7923435239728466018::1751661204::0::1::::<>CharacterBody2D<><>0<>0<><>::
+fryingpanscript.gd::GDScript/GDScript::7923435239728466018::1751749733::0::1::::<>CharacterBody2D<><>0<>0<><>::
 game_data.gd::GDScript/GDScript::6223363569702823359::1751528902::0::1::::GameData<>Node<><>0<>0<><>::
 main_menu.gd::GDScript/GDScript::952343400571110474::1751531416::0::1::::<>Control<><>0<>0<><>::
 pitch_or_ditch.gd::GDScript/GDScript::4152768861427172887::1751528902::0::1::::<>Control<><>0<>0<><>::
 player.gd::GDScript/GDScript::8975146606487908476::1751528902::0::1::::Player<>Node<><>0<>0<><>::
-sinkScript.gd::GDScript/GDScript::1344573467159419635::1751661204::0::1::::<>Area2D<><>0<>0<><>::
-spongeScript.gd::GDScript/GDScript::4939981951948031101::1751662541::0::1::::<>CharacterBody2D<><>0<>0<><>::
+sinkScript.gd::GDScript/GDScript::1344573467159419635::1751750075::0::1::::<>Area2D<><>0<>0<><>::
+spongeScript.gd::GDScript/GDScript::4939981951948031101::1751751124::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://tempAssets/::1751535725
 Placeholder-Fryingpan.png::CompressedTexture2D/CompressedTexture2D::7141751751901740533::1751534834::1751535725::1::::<><><>0<>0<>c48988f0ba1c50bebebb30fffd2d82bd<>res://.godot/imported/Placeholder-Fryingpan.png-ef4cd47f41f3860ec6310fd4bf6a39c4.ctex::
 Placeholder-sponge.png::CompressedTexture2D/CompressedTexture2D::7479324271510478682::1751535653::1751535709::1::::<><><>0<>0<>972ff6a8c75839963f0034b1d556207e<>res://.godot/imported/Placeholder-sponge.png-f8e8fe297f8001efdef114f148a7cffe.ctex::

@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://d5613qud8mfy"]
+
+[ext_resource type="Script" path="res://scripts/kitchen_scene.gd" id="1_kitchen_script"]
+[ext_resource type="Texture2D" path="res://assets/kitchen-scene.jpg" id="2_kitchen_bg"]
+
+[node name="KitchenScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kitchen_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kitchen_bg")
+expand_mode = 1
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+bbcode_enabled = true
+text = "[center][b]🍳 Cooking[/b][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+bbcode_enabled = true
+text = "[center]Welcome to Sandra's kitchen! 
+
+Time to learn the art of cooking something that isn't beige and microwaveable.
+
+From scrambled eggs to actual meals - your journey from tech bro to chef begins here.[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="ButtonContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 100.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartCookingBtn" type="Button" parent="UI/ButtonContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Start Cooking"
+
+[node name="BackBtn" type="Button" parent="UI/ButtonContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "← Back to Choose Path"

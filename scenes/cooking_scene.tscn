@@ -1,0 +1,127 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqk0c5n1xgh7p"]
+
+[ext_resource type="Script" path="res://scripts/cooking_scene.gd" id="1_cooking_script"]
+[ext_resource type="Texture2D" path="res://assets/kitchen-scene.jpg" id="2_kitchen_bg"]
+[ext_resource type="Texture2D" path="res://assets/cook-pan.jpg" id="3_cook_pan_bg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_start_cooking"]
+bg_color = Color(0.2, 0.6, 0.2, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="CookingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cooking_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kitchen_bg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CookPanBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cook_pan_bg")
+expand_mode = 1
+stretch_mode = 5
+rotation = 1.5708
+visible = false
+
+[node name="RightSidebar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RightSidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CookingElements" type="VBoxContainer" parent="RightSidebar/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="RightSidebar/ScrollContainer/CookingElements"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_colors/default_color = Color(0.2, 0.2, 0.2, 1)
+bbcode_enabled = true
+text = "[center][b]Choose Your Dish[/b][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Spacer1" type="Control" parent="RightSidebar/ScrollContainer/CookingElements"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ActionButtons" type="VBoxContainer" parent="RightSidebar/ScrollContainer/CookingElements"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="RightSidebar/ScrollContainer/CookingElements/ActionButtons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "← Back to Kitchen"
+
+[node name="CookingArea" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -150.0
+offset_right = 350.0
+offset_bottom = 150.0
+grow_vertical = 2
+
+[node name="CookingStatus" type="RichTextLabel" parent="CookingArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/default_color = Color(0.2, 0.2, 0.2, 1)
+bbcode_enabled = true
+text = "[center][b]Cooking Area[/b]
+
+Select ingredients and tools from the sidebar to start cooking!
+
+[i]Chad stares at the kitchen, overwhelmed by the possibilities of actual home cooking...[/i][/center]"
+fit_content = true
+scroll_active = false

@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqk8s3oaxgh5p"]
+
+[ext_resource type="Script" path="res://scripts/sink_scene.gd" id="1_sink_script"]
+[ext_resource type="Texture2D" path="res://assets/sink-scene.jpg" id="2_sink_bg"]
+
+[node name="SinkScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sink_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sink_bg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="ContentContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -200.0
+offset_right = -50.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="ContentContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+bbcode_enabled = true
+text = "[center][b]The Sink of Solitude[/b][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="ContentContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+bbcode_enabled = true
+text = "[center]Time to face the dishes you've been avoiding for... how long has it been now? 
+
+The sink holds the remnants of your tech bro lifestyle - energy drink cans, takeout containers, and that one coffee mug that might be a science experiment.
+
+Sandra's wisdom echoes: 'Cleanliness is just mindfulness with soap.'[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Spacer" type="Control" parent="ContentContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="ContentContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartCleaningButton" type="Button" parent="ContentContainer/ButtonContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Start Cleaning"
+
+[node name="BackButton" type="Button" parent="ContentContainer/ButtonContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "← Back"

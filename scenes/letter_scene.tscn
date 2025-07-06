@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqk7m2n8xgh4o"]
+
+[ext_resource type="Script" path="res://scripts/letter_scene.gd" id="1_letter_script"]
+[ext_resource type="Texture2D" path="res://assets/letter.jpg" id="2_letter_bg"]
+
+[node name="LetterScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_letter_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_letter_bg")
+expand_mode = 1
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="LetterContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LetterPage" type="ColorRect" parent="LetterContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95, 0.95, 0.9, 0.95)
+
+[node name="LetterText" type="RichTextLabel" parent="LetterContainer/LetterPage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 16
+bbcode_enabled = true
+text = "[center][b]Dear Chad,[/b][/center]
+
+You're Chad, a burnt-out tech bro in San Francisco, trapped in a startup house filled with ramen cups, VC delusions, and Slack pings at 2 a.m.
+
+Your dream? Ditch the grind and become a peaceful farmer. 🧘‍♂️🌾
+
+But first—you'll need to master the art of adulthood:
+
+🍳 [b]Cook something that isn't beige and microwaveable[/b]
+
+🧽 [b]Wash dishes before they develop their own ecosystem[/b]
+
+🌱 [b]Grow something green that isn't mold on your coffee mug[/b]
+
+[i]Your journey from tech bro to zen farmer starts now...[/i]"
+fit_content = true
+scroll_active = false
+
+[node name="ContinueButton" type="Button" parent="LetterContainer/LetterPage"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 220.0
+offset_right = 100.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Continue"

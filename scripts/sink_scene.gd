@@ -24,11 +24,11 @@ func _connect_signals():
 	back_button.pressed.connect(_on_back_pressed)
 
 func _on_start_cleaning_pressed():
-	# Fade out and transition to Act 2
+	# Fade out and transition to cleaning game
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
-	get_tree().change_scene_to_file("res://scenes/acts/act2_casserole_crisis.tscn")
+	get_tree().change_scene_to_file("res://scenes/cleaning_game.tscn")
 
 func _on_back_pressed():
 	# Go back to game choose page

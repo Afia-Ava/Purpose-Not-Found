@@ -24,8 +24,8 @@ func _connect_signals():
 	back_btn.pressed.connect(_on_back_pressed)
 
 func _on_start_cooking_pressed():
-	# Go to the new cooking scene
-	_transition_to_scene("res://scenes/cooking_scene.tscn")
+	# Go to the new simple cooking scene
+	_transition_to_scene("res://scenes/simple_cooking.tscn")
 
 func _on_back_pressed():
 	# Go back to game choose page

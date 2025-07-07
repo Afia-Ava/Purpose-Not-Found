@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqk8s3oaxgh5p"]
 
 [ext_resource type="Script" path="res://scripts/sink_scene.gd" id="1_sink_script"]
-[ext_resource type="Texture2D" path="res://assets/sink-scene.jpg" id="2_sink_bg"]
+[ext_resource type="Texture2D" path="res://assets/sink.jpg" id="2_sink_bg"]
 
 [node name="SinkScene" type="Control"]
 layout_mode = 3

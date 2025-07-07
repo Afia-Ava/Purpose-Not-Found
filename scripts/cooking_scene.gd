@@ -137,9 +137,6 @@ func _setup_scene():
 	title_label.add_theme_color_override("default_color", Color.WHITE)
 	cooking_status.add_theme_color_override("default_color", Color.WHITE)
 	
-	# Create "Back to Kitchen" button in the cooking area
-	_create_back_to_kitchen_button()
-	
 	# Start with dish selection
 	_show_dish_selection()
 	_connect_back_button()
@@ -214,8 +211,11 @@ func _show_ingredient_selection():
 		if ingredient_key in dish_info["required"]:
 			button.modulate = Color(1.0, 0.8, 0.8, 1.0)  # Light red for required
 		
+		# Insert before the action buttons
+		var action_buttons = cooking_elements.get_node("ActionButtons")
+		var action_index = action_buttons.get_index()
 		cooking_elements.add_child(button)
-		cooking_elements.move_child(button, -2)  # Before action buttons
+		cooking_elements.move_child(button, action_index)
 		
 		# Connect the button
 		button.pressed.connect(_on_ingredient_selected.bind(ingredient_key))
@@ -226,12 +226,13 @@ func _show_ingredient_selection():
 	start_button.custom_minimum_size = Vector2(0, 50)
 	start_button.add_theme_font_size_override("font_size", 20)
 	start_button.add_theme_color_override("font_color", Color.WHITE)
+	start_button.add_theme_color_override("font_color_pressed", Color.BLACK)
 	
 	# Insert before the action buttons
 	var action_buttons = cooking_elements.get_node("ActionButtons")
-	var index = action_buttons.get_index()
+	var final_index = action_buttons.get_index()
 	cooking_elements.add_child(start_button)
-	cooking_elements.move_child(start_button, index)
+	cooking_elements.move_child(start_button, final_index)
 	
 	# Connect the button after it's properly added
 	start_button.pressed.connect(_on_start_cooking_pressed)
@@ -324,35 +325,86 @@ func _update_cooking_status_for_ingredients():
 	cooking_status.text = status_text
 
 func _on_start_cooking_pressed():
-	if not selected_dish:
+	# Add safety check to prevent crashes
+	print("Start cooking button pressed - beginning validation...")
+	
+	# Validate that we have a selected dish
+	if not selected_dish or selected_dish.is_empty():
+		print("Error: No dish selected")
 		_show_message("Please select a dish first!")
 		return
 	
+	print("Selected dish: ", selected_dish)
+	
+	# Validate that the dish exists in our dishes dictionary
+	if not dishes.has(selected_dish):
+		print("Error: Dish not found in dictionary")
+		_show_message("Invalid dish selected!")
+		return
+	
 	var dish_info = dishes[selected_dish]
+	print("Dish info found: ", dish_info)
+	
 	var missing_required = []
 	
 	# Check for required ingredients
+	print("Checking required ingredients...")
 	for req in dish_info["required"]:
+		print("Checking requirement: ", req)
 		if req not in selected_ingredients:
-			missing_required.append(all_ingredients[req])
+			if all_ingredients.has(req):
+				missing_required.append(all_ingredients[req])
+				print("Missing required ingredient: ", all_ingredients[req])
+			else:
+				missing_required.append(req)
+				print("Missing ingredient (not in dictionary): ", req)
 	
 	if missing_required.size() > 0:
+		print("Missing ingredients found, showing message")
 		var message = "You're missing required ingredients:\n"
 		for req in missing_required:
 			message += "• " + req + "\n"
 		_show_message(message)
 		return
 	
-	# Start the cooking sequence
+	print("All validation passed - starting cooking sequence")
+	# All validation passed - start the cooking sequence
 	_start_cooking_sequence()
 
 func _start_cooking_sequence():
+	print("Starting cooking sequence...")
+	
+	# Validate we have the required nodes
+	if not kitchen_background:
+		print("Error: kitchen_background node not found")
+		push_error("Missing kitchen_background node!")
+		return
+	
+	if not cook_pan_background:
+		print("Error: cook_pan_background node not found")
+		push_error("Missing cook_pan_background node!")
+		return
+	
+	print("Background nodes found, switching visibility...")
 	# Switch to cook-pan background
 	kitchen_background.visible = false
 	cook_pan_background.visible = true
 	
+	print("Generating cooking steps for dish: ", selected_dish)
 	var cooking_steps = _generate_cooking_steps()
+	
+	# Validate we have cooking steps
+	if cooking_steps.is_empty():
+		print("Error: No cooking steps generated")
+		push_error("No cooking steps generated for dish: " + selected_dish)
+		cooking_status.text = "[center][color=red]Error: No cooking steps found for this dish![/color][/center]"
+		return
+	
+	print("Generated ", cooking_steps.size(), " cooking steps")
 	current_step = 0
+	
+	# Add try-catch equivalent for the cooking step advancement
+	print("Starting cooking step advancement...")
 	_advance_cooking_step(cooking_steps)
 
 func _generate_cooking_steps() -> Array[String]:
@@ -491,21 +543,56 @@ func _generate_cooking_steps() -> Array[String]:
 	return steps
 
 func _advance_cooking_step(cooking_steps: Array[String]):
+	print("Advancing cooking step: ", current_step, " of ", cooking_steps.size())
+	
+	# Safety check to prevent infinite recursion
+	if current_step > cooking_steps.size() + 5:
+		print("Error: Too many cooking steps, stopping to prevent crash")
+		_finish_cooking()
+		return
+	
 	if current_step < cooking_steps.size():
+		var step_text = cooking_steps[current_step]
+		print("Displaying step: ", step_text)
+		
+		# Validate cooking_status node exists
+		if not cooking_status:
+			print("Error: cooking_status node not found")
+			return
+		
 		cooking_status.text = "[center][b]Cooking in Progress...[/b]
 
-" + cooking_steps[current_step] + "
+" + step_text + "
 
 [i]Step " + str(current_step + 1) + " of " + str(cooking_steps.size()) + "[/i][/center]"
 		
 		current_step += 1
+		
+		# Use call_deferred to prevent stack overflow
+		print("Waiting 3 seconds before next step...")
 		await get_tree().create_timer(3.0).timeout
-		_advance_cooking_step(cooking_steps)
+		print("Timer finished, calling next step...")
+		call_deferred("_advance_cooking_step", cooking_steps)
 	else:
+		print("All cooking steps completed, finishing...")
 		_finish_cooking()
 
 func _finish_cooking():
+	print("Finishing cooking sequence...")
+	
+	# Validate we still have the selected dish
+	if not selected_dish or not dishes.has(selected_dish):
+		print("Error: Invalid dish in finish_cooking")
+		return
+	
 	var dish_info = dishes[selected_dish]
+	print("Cooking finished for: ", dish_info["name"])
+	
+	# Validate cooking_status node exists
+	if not cooking_status:
+		print("Error: cooking_status node not found in finish_cooking")
+		return
+	
 	cooking_status.text = "[center][b]🎉 Cooking Complete! 🎉[/b]
 
 Chad has successfully made " + dish_info["name"] + "!
@@ -513,6 +600,8 @@ Chad has successfully made " + dish_info["name"] + "!
 [i]The transformation is real - from tech bro who lived on energy drinks to someone who can actually create food. This " + dish_info["name"].to_lower() + " might not be restaurant quality, but it's made with his own hands.[/i]
 
 [b]Achievement Unlocked: " + dish_info["name"] + " Master![/b][/center]"
+	
+	print("Cooking sequence completed successfully!")
 	
 	# Enable back button to return
 	await get_tree().create_timer(3.0).timeout

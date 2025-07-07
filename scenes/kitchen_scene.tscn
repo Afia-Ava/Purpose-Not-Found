@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d5613qud8mfy"]
 
 [ext_resource type="Script" path="res://scripts/kitchen_scene.gd" id="1_kitchen_script"]
-[ext_resource type="Texture2D" path="res://assets/kitchen-scene.jpg" id="2_kitchen_bg"]
+[ext_resource type="Texture2D" path="res://assets/kitchen.jpg" id="2_kitchen_bg"]
 
 [node name="KitchenScene" type="Control"]
 layout_mode = 3

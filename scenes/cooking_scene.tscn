@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqk0c5n1xgh7p"]
 
 [ext_resource type="Script" path="res://scripts/cooking_scene.gd" id="1_cooking_script"]
-[ext_resource type="Texture2D" path="res://assets/kitchen-scene.jpg" id="2_kitchen_bg"]
-[ext_resource type="Texture2D" path="res://assets/cook-pan.jpg" id="3_cook_pan_bg"]
+[ext_resource type="Texture2D" path="res://assets/kitchen.jpg" id="2_kitchen_bg"]
+[ext_resource type="Texture2D" path="res://assets/kitchen.jpg" id="3_cook_pan_bg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_start_cooking"]
 bg_color = Color(0.2, 0.6, 0.2, 1)

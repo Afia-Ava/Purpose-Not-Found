@@ -1,10 +1,9 @@
 res://scenes/acts/act1_burnout_boulevard.tscn
-res://scenes/menu/mainMenu.tscn
 res://scenes/acts/Cleaning.tscn
-res://scripts/letter_scene.gd
-res://scripts/main_menu.gd
-res://scripts/game_choose.gd
-res://scripts/kitchen_scene.gd
-res://scripts/sink_scene.gd
-res://scripts/farm_scene.gd
 res://scripts/cooking_scene.gd
+res://scripts/kitchen_scene.gd
+res://scripts/simple_cooking.gd
+res://scripts/cleaning_game.gd
+res://scripts/farm_scene.gd
+res://scripts/sink_scene.gd
+res://scripts/farming_game.gd

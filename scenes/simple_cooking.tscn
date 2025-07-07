@@ -1,0 +1,151 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxk2c7n3xgh8q"]
+
+[ext_resource type="Script" path="res://scripts/simple_cooking.gd" id="1_simple_cooking_script"]
+[ext_resource type="Texture2D" path="res://assets/kitchen.jpg" id="2_kitchen_bg"]
+
+[node name="SimpleCookingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_simple_cooking_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kitchen_bg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RecipePanel" type="Panel" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/RecipePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RecipeList" type="VBoxContainer" parent="MainContainer/RecipePanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="MainContainer/RecipePanel/ScrollContainer/RecipeList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center][b]🍳 Chad's Cooking Adventure[/b][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Subtitle" type="RichTextLabel" parent="MainContainer/RecipePanel/ScrollContainer/RecipeList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/default_color = Color(0.9, 0.9, 0.9, 1)
+bbcode_enabled = true
+text = "[center]Choose a recipe to start cooking![/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Spacer" type="Control" parent="MainContainer/RecipePanel/ScrollContainer/RecipeList"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CookingArea" type="Panel" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CookingStatus" type="RichTextLabel" parent="MainContainer/CookingArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center][b]Loading...[/b][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -60.0
+offset_right = 150.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "← Back to Kitchen"
+
+[node name="ScoreBox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="ScoreLabel" type="RichTextLabel" parent="ScoreBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center][b]Score: 0[/b][/center]"
+fit_content = true
+scroll_active = false
